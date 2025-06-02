@@ -31,7 +31,7 @@ ydl_opts = {
         'format': 'bestvideo+bestaudio/best',
         'throttledratelimit': 0,  
         'merge_output_format': 'mp4',
-        'outtmpl': f'downloaded/%(title)s.%(ext)s',
+        'outtmpl': f'{custom_dir}/%(title)s.%(ext)s',
         'cachedir': './yt_dlp_cache',
         'verbose': False, #Enable for debugging
         'quiet': False,
