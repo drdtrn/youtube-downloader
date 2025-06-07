@@ -34,8 +34,13 @@ ydl_opts = {
         'outtmpl': f'{custom_dir}/%(title)s.%(ext)s',
         'cachedir': './yt_dlp_cache',
         'verbose': False, #Enable for debugging
-        'quiet': False,
+        'quiet': False
     }
+
+no_playlist_opts = {
+    **ydl_opts,
+    'noplaylist': True,
+}
 
 print('''\t\t####################################################################
 \n\t\t\033[1;4;31mYouTube downloader created By: \033[1;4;32mDardan Ternava !!!\033[0m\n
@@ -67,7 +72,7 @@ elif list_or_single == 'n':
         elif confirmation == 'n':
             video_list.append(user_input)
             try:
-                with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                with yt_dlp.YoutubeDL(no_playlist_opts) as ydl:
                     print('\033[1;33mDownloading...\n This may take a while depending on the connection!\033[0m')
                     ydl.download(video_list)
                     print(f'\033[1;32mVideo downloaded successfully to "downloaded" folder.\033[0m')
